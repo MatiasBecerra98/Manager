@@ -1,0 +1,25 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-group">
+    <td><%= f.input :code, :label => "Codigo Producto" %></td>
+  </div>
+  <div class="form-group">
+    <td><%= f.input :product_type_id, :collection => @types, :label => "Tipo de Producto",:include_blank => "Seleccione por favor" %></td>
+  </div>
+  <div class="form-group">
+    <td><%= f.input :status_id, :collection => @status, :label => "Estado Producto",:selected => 1 %></td>
+  </div>
+  <div class="form-group">
+    <td><%= f.input :size_id, :collection => @sizes, :label => "Talla Producto",:include_blank => "Seleccione por favor" %></td>
+  </div>
+
+  <div class="encontrado" style="display: none;"><p><b>Producto Encontrado, desea modificar ?</b></p></div>
+  <div class="no_encontrado" style="display: none;"><p><b>Producto Nuevo, seleccione para continuar</b></p></div>
+
+  <div class="form-actions" style="margin-top: 10px;">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+

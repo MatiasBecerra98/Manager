@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ @import ‘bootstrap’
+ */
+
+
+@media only screen and (max-width: 568px) {
+	body{
+		padding: 25px;
+	}
+
+	table {
+		width:100%;
+		font-size:10px;
+		thead{
+		font-weight:bold;
+		font-size:15px;
+			tr{
+				th{
+
+				}
+			}
+		}
+		tbody{
+			tr{
+				td{
+					border: 0;
+				}
+			}
+		}
+	}
+
+	.btn-primary{
+		width:100%;
+	}
+	.btn-success{
+		width:100%;
+		margin-top:15px;
+	}
+
+	input[type=number]
+	{
+		border: 1px solid lightgrey;
+		
+	}
+	label{
+		width:100%;
+		font-weight:bold;
+	}
+	.linea{
+		width:100%; 
+		border-bottom: 1px solid lightgrey;
+	}
+	input[type=text],input[type=number],select{
+		width:100%;
+		border: 1px solid lightgrey;
+	}
+}
+
+@media only screen and (min-width: 569px){
+	.btn-primary{
+		width:10%;
+	}	
+}

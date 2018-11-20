@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @product.code %>
+</p>
+
+<p>
+  <strong>Tipo Producto:</strong>
+  <%= @product.product_type.name %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @product.status.name %>
+</p>
+
+<p>
+  <strong>Talla:</strong>
+  <%= @product.size.name %>
+</p>
+
+<%= link_to 'Back', products_path,class: "btn btn-success" %>

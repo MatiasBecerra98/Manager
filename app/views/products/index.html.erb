@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<div class="enhanced-search" style="margin-bottom: 10px">
+  <%buscar_action = '/products'%>
+  <%= form_tag buscar_action, class: 'searching', :method => :get do %>
+    <!-- Busco según la bodega seleccionada -->
+    <div>Buscar por codigo:</div>
+    <div class="par">
+    <%= text_field_tag "codigo", params[:codigo],:include_blank => "Seleccione por favor" %>
+    </div>
+
+    <div style="margin-top: 10px;">
+    <%= text_field_tag :search, params[:search], :class => "search_input", style: 'display: none;' %>
+    <%= submit_tag "Buscar", :name => 'search', id: 'btnBuscar',class: "btn btn-primary"%>
+    <div></div>
+    <%= link_to 'Quitar Filtros', buscar_action, class: "btn btn-success" %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="tinytable" >
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Tipo</th>
+      <th>Estado</th>
+      <th>Talla</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.code %></td>
+        <td><%= product.product_type.name %></td>
+        <td><%= product.status.name %></td>
+        <td><%= !product.size.nil? ? product.size.name : "Sin Talla" %></td>
+        <td><%= link_to raw('<i class="fas fa-eye"></i>'), product %></td>
+        <td><%= link_to raw('<i class="fas fa-edit"></i>'), edit_product_path(product) %></td>
+        <td><%= link_to raw('<i class="fas fa-trash"></i>'), product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
